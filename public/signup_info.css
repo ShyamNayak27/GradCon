@@ -1,0 +1,90 @@
+.profile-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: linear-gradient(to right, #ffffff 70%, #f3f4f6 30%);
+    box-shadow: 0 0 0 1px #ccc;
+    border: 2px solid #000;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+  
+  /* Decorative Color Blocks */
+  .profile-container::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -40px;
+    width: 120px;
+    height: 120px;
+    background-color: #dbeafe;
+    z-index: -1;
+  }
+  
+  .profile-container::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background-color: #fde68a;
+    z-index: -1;
+  }
+  
+  .profile-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+    color: #111827;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .form-group {
+    flex: 1 1 calc(50% - 2rem);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group-full {
+    flex: 1 1 100%;
+  }
+  
+  label {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+  }
+  
+  input,
+  select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #000;
+    font-size: 1rem;
+    background-color: #f9fafb;
+  }
+  
+  button {
+    margin-top: 2rem;
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: #111827;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #000;
+    transition: 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #000;
+  }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Details</title>
+  <link rel="stylesheet" href="/signup_info.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <h2>Enter Your Details</h2>
+    <form class="profile-form" id="profileForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Batch</label>
+        <input type="text" name="batch" required />
+      </div>
+      <div class="form-group">
+        <label>Year of Study</label>
+        <select name="yearOfStudy" required>
+          <option value="">Select Year</option>
+          <option value="1st Year">Freshman - 1st Year</option>
+          <option value="2nd Year">Sophomore - 2nd Year</option>
+          <option value="3rd Year">Junior - 3rd Year</option>
+          <option value="4th Year">Senior - 4th Year</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Course</label>
+        <input type="text" name="course" required />
+      </div>
+      <div class="form-group">
+        <label>Enrollment Number</label>
+        <input type="text" name="enrollmentNumber" required />
+      </div>
+      <div class="form-group">
+        <label>College Email</label>
+        <input type="email" name="collegeEmail" required />
+      </div>
+      <div class="form-group">
+        <label>Group Number</label>
+        <input type="text" name="groupNumber" required />
+      </div>
+      <div class="form-group">
+        <label>Hostel Status</label>
+        <select name="hostelStatus" required>
+          <option value="">Select</option>
+          <option value="Hosteller">Hosteller</option>
+          <option value="Day Scholar">Day Scholar</option>
+        </select>
+      </div>
+      <div class="form-group-full">
+        <button type="submit">Save Details</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('profileForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = {};
+
+      Array.from(form.elements).forEach((el) => {
+        if (el.name) formData[el.name] = el.value;
+      });
+
+      try {
+        const res = await fetch('/api/save-user-info', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          alert("✅ Info saved!");
+          window.location.href = '/titlepage';  // Changed from '/dashboard' to '/titlepage'
+        } else {
+          alert("❌ Failed to save info: " + data.message);
+        }
+      } catch (err) {
+        console.error("Request error:", err);
+        alert("Error submitting form.");
+      }
+    });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,814 @@
+/* ==========================================================================
+   Dashboard Layout
+   ========================================================================== */
+
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+   .dashboard-container {
+     display: flex;
+     min-height: calc(100vh - 64px); /* Adjust based on navbar height */
+     font-family: 'Inter', sans-serif;
+   }
+   
+   
+   /* ==========================================================================
+      Sidebar Styles
+      ========================================================================== */
+   
+   .dashboard-sidebar {
+     width: 250px;
+     flex-shrink: 0;
+     background: white;
+     border-right: 2px solid #000;
+     display: flex;
+     flex-direction: column;
+   }
+   
+   .sidebar-header {
+     padding: 1.5rem;
+     border-bottom: 2px solid #000;
+   }
+   
+   .sidebar-header h2 {
+     font-size: 1.25rem;
+     font-weight: 600;
+     margin: 0;
+   }
+   
+   .sidebar-menu {
+     flex: 1;
+     padding: 1rem 0;
+   }
+   
+   .sidebar-menu-item {
+     display: flex;
+     align-items: center;
+     padding: 0.75rem 1.5rem;
+     cursor: pointer;
+     transition: background-color 0.2s;
+     position: relative;
+   }
+   
+   .sidebar-menu-item:hover {
+     background-color: #f5f5f5;
+   }
+   
+   .sidebar-menu-item.active {
+     background-color: #E8F5FF;
+     font-weight: 500;
+   }
+   
+   .sidebar-menu-item.active::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 4px;
+     background: #000;
+   }
+   
+   .menu-item-icon {
+     width: 20px;
+     height: 20px;
+     margin-right: 0.75rem;
+     color: #4B5563;
+   }
+   
+   .sidebar-menu-item.active .menu-item-icon {
+     color: #000;
+   }
+   
+   .sidebar-footer {
+     padding: 1rem 0;
+     border-top: 1px solid #E5E7EB;
+   }
+   
+   .user-profile {
+     display: flex;
+     align-items: center;
+     padding: 0.75rem 1.5rem;
+     margin-top: 0.5rem;
+   }
+   
+   .user-avatar {
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     background: #E8F5FF;
+     border: 2px solid #000;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-weight: 600;
+     font-size: 0.875rem;
+     margin-right: 0.75rem;
+   }
+   
+   .user-info {
+     display: flex;
+     flex-direction: column;
+   }
+   
+   .user-name {
+     font-weight: 500;
+     font-size: 0.9375rem;
+   }
+   
+   .view-profile-link {
+     font-size: 0.75rem;
+     color: #4B5563;
+     text-decoration: none;
+   }
+   
+   .view-profile-link:hover {
+     text-decoration: underline;
+   }
+   
+   
+   /* ==========================================================================
+      Main Content Area
+      ========================================================================== */
+   
+   .dashboard-content {
+     flex: 1;
+     padding: 2rem;
+     background: #F9FAFB;
+     overflow-y: auto;
+   }
+   
+   .dashboard-content-section {
+     max-width: 1000px;
+     margin: 0 auto;
+   }
+   
+   .dashboard-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1.5rem;
+   }
+   
+   .dashboard-header h2 {
+     font-size: 1.5rem;
+     font-weight: 600;
+     margin: 0;
+   }
+   
+   .dashboard-action-btn {
+     padding: 0.5rem 1rem;
+     background: #000;
+     color: white;
+     border: none;
+     font-weight: 500;
+     cursor: pointer;
+     transition: all 0.2s;
+     border: 2px solid #000;
+   }
+   
+   .dashboard-action-btn:hover {
+     transform: translateY(-1px);
+   }
+   
+   .dashboard-tabs {
+     display: flex;
+     margin-bottom: 1.5rem;
+     border-bottom: 1px solid #E5E7EB;
+   }
+   
+   .dashboard-tab {
+     padding: 0.75rem 1.5rem;
+     background: none;
+     border: none;
+     font-weight: 500;
+     cursor: pointer;
+     color: #6B7280;
+     position: relative;
+   }
+   
+   .dashboard-tab.active {
+     color: #000;
+   }
+   
+   .dashboard-tab.active::after {
+     content: '';
+     position: absolute;
+     bottom: -1px;
+     left: 0;
+     width: 100%;
+     height: 2px;
+     background: #000;
+   }
+   
+   
+   /* ==========================================================================
+      Profile Content
+      ========================================================================== */
+   
+   .profile-container {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+   }
+   
+   .profile-header {
+     display: flex;
+     align-items: center;
+     gap: 1.5rem;
+     padding: 2rem;
+     background: white;
+     border: 2px solid #000;
+     border-radius: 12px;
+   }
+   
+   .profile-avatar-large {
+     width: 80px;
+     height: 80px;
+     border-radius: 50%;
+     background: #E8F5FF;
+     border: 2px solid #000;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.75rem;
+     font-weight: 600;
+   }
+   
+   .profile-info h3 {
+     font-size: 1.5rem;
+     font-weight: 600;
+     margin: 0 0 0.5rem;
+   }
+   
+   .profile-email, .profile-id {
+     margin: 0;
+     font-size: 0.9375rem;
+     color: #4B5563;
+   }
+   
+   .profile-stats {
+     display: flex;
+     gap: 1rem;
+   }
+   
+   .stat-box {
+     flex: 1;
+     padding: 1.5rem;
+     background: white;
+     border: 2px solid #000;
+     border-radius: 12px;
+     text-align: center;
+   }
+   
+   .stat-box:nth-child(1) {
+     background: #E8F5FF;
+   }
+   
+   .stat-box:nth-child(2) {
+     background: #FFF7ED;
+   }
+   
+   .stat-box:nth-child(3) {
+     background: #F0FDF4;
+   }
+   
+   .stat-value {
+     font-size: 1.75rem;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+   }
+   
+   .stat-label {
+     font-size: 0.875rem;
+     color: #4B5563;
+   }
+   
+   .profile-details-grid {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 1rem;
+   }
+   
+   .profile-card {
+     background: white;
+     border: 2px solid #000;
+     border-radius: 12px;
+     padding: 1.5rem;
+   }
+   
+   .academic-info {
+     background: #E8F5FF;
+   }
+   
+   .progress-info {
+     background: #F0FDF4;
+   }
+   
+   .residential-info {
+     background: #FFF7ED;
+   }
+   
+   .activities-info {
+     background: #EFF6FF;
+   }
+   
+   .card-header {
+     margin-bottom: 1rem;
+   }
+   
+   .card-header h4 {
+     font-size: 1.125rem;
+     font-weight: 600;
+     margin: 0;
+   }
+   
+   .detail-list {
+     display: flex;
+     flex-direction: column;
+     gap: 0.75rem;
+   }
+   
+   .detail-item {
+     display: flex;
+     justify-content: space-between;
+   }
+   
+   .detail-label {
+     font-weight: 500;
+     color: #4B5563;
+   }
+   
+   .detail-value {
+     color: #111827;
+   }
+   
+   .progress-bar-container {
+     margin-bottom: 1rem;
+   }
+   
+   .progress-bar {
+     height: 8px;
+     background: #E5E7EB;
+     border-radius: 4px;
+     overflow: hidden;
+     margin-bottom: 0.5rem;
+   }
+   
+   .progress-fill {
+     height: 100%;
+     background: #111827;
+   }
+   
+   .progress-text {
+     font-size: 0.875rem;
+     color: #4B5563;
+     text-align: center;
+   }
+   
+   .credits-breakdown {
+     margin-top: 1rem;
+   }
+   
+   .credit-item {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 0.5rem;
+   }
+   
+   .credit-label {
+     color: #4B5563;
+   }
+   
+   .residence-info {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+   }
+   
+   .residence-icon {
+     width: 40px;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   
+   .residence-icon svg {
+     width: 24px;
+     height: 24px;
+   }
+   
+   .activities-list {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.75rem;
+   }
+   
+   .activity-badge {
+     padding: 0.5rem 1rem;
+     background: rgba(255, 255, 255, 0.5);
+     border: 1px solid #000;
+     border-radius: 9999px;
+     font-size: 0.875rem;
+   }
+   
+   
+   /* ==========================================================================
+      Lost & Found Items List
+      ========================================================================== */
+   
+   .dashboard-items-list {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+   }
+   
+   .dashboard-item {
+     display: flex;
+     align-items: center;
+     padding: 1rem;
+     background: white;
+     border: 2px solid #000;
+     position: relative;
+   }
+   
+   .item-status-indicator {
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+     margin-right: 1rem;
+   }
+   
+   .dashboard-item.lost .item-status-indicator {
+     background: #EF4444;
+   }
+   
+   .dashboard-item.found .item-status-indicator {
+     background: #10B981;
+   }
+   
+   .item-details {
+     flex: 1;
+   }
+   
+   .item-details h3 {
+     font-size: 1rem;
+     font-weight: 600;
+     margin: 0 0 0.5rem;
+   }
+   
+   .item-details p {
+     margin: 0;
+     font-size: 0.875rem;
+     color: #4B5563;
+   }
+   
+   .item-actions {
+     margin-left: 1rem;
+   }
+   
+   .item-action-btn {
+     padding: 0.375rem 0.75rem;
+     background: none;
+     border: 2px solid #000;
+     font-weight: 500;
+     cursor: pointer;
+   }
+   
+   .item-action-btn:hover {
+     background: #f5f5f5;
+   }
+   
+   
+   /* ==========================================================================
+      Laundry Tracker
+      ========================================================================== */
+   
+   .status-legend {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     font-size: 0.875rem;
+   }
+   
+   .status-dot {
+     display: inline-block;
+     width: 10px;
+     height: 10px;
+     border-radius: 50%;
+     margin-right: 0.25rem;
+   }
+   
+   .status-dot.available {
+     background: #10B981;
+   }
+   
+   .status-dot.in-use {
+     background: #EF4444;
+   }
+   
+   .laundry-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+     gap: 1rem;
+     margin-top: 1.5rem;
+   }
+   
+   .laundry-machine {
+     background: white;
+     border: 2px solid #000;
+     padding: 1rem;
+   }
+   
+   .laundry-machine.available {
+     background: #E8F5FF;
+   }
+   
+   .laundry-machine.in-use {
+     background: #FFEDD5;
+   }
+   
+   .machine-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1rem;
+   }
+   
+   .machine-header h3 {
+     font-size: 1rem;
+     font-weight: 600;
+     margin: 0;
+   }
+   
+   .machine-status-indicator {
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+   }
+   
+   .laundry-machine.available .machine-status-indicator {
+     background: #10B981;
+   }
+   
+   .laundry-machine.in-use .machine-status-indicator {
+     background: #EF4444;
+   }
+   
+   .time-remaining {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.5rem;
+     color: #4B5563;
+   }
+   
+   .time-remaining svg {
+     width: 18px;
+     height: 18px;
+   }
+   
+   .use-machine-btn {
+     width: 100%;
+     padding: 0.5rem;
+     background: #000;
+     color: white;
+     border: 2px solid #000;
+     font-weight: 500;
+     cursor: pointer;
+   }
+   
+   .use-machine-btn:hover {
+     transform: translateY(-1px);
+   }
+   
+   
+   /* ==========================================================================
+      Clubs & Activities
+      ========================================================================== */
+   
+   .clubs-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+     gap: 1.5rem;
+     margin-top: 1.5rem;
+   }
+   
+   .club-card {
+     background: white;
+     border: 2px solid #000;
+     padding: 1.5rem;
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+   }
+   
+   .club-card:nth-child(1) {
+     background: #E8F5FF;
+   }
+   
+   .club-card:nth-child(2) {
+     background: #FFF7ED;
+   }
+   
+   .club-card:nth-child(3) {
+     background: #F0FDF4;
+   }
+   
+   .club-header {
+     margin-bottom: 1rem;
+   }
+   
+   .club-header h3 {
+     font-size: 1.125rem;
+     font-weight: 600;
+     margin: 0;
+   }
+   
+   .club-card p {
+     color: #4B5563;
+     font-size: 0.9375rem;
+     flex: 1;
+     margin: 0 0 1.5rem;
+   }
+   
+   .club-footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   .members-count {
+     font-size: 0.875rem;
+     color: #6B7280;
+   }
+   
+   .join-club-btn {
+     padding: 0.375rem 0.75rem;
+     background: none;
+     border: 2px solid #000;
+     font-weight: 500;
+     cursor: pointer;
+   }
+   
+   .join-club-btn:hover {
+     background: rgba(0, 0, 0, 0.05);
+   }
+   
+   
+   /* ==========================================================================
+      Events List
+      ========================================================================== */
+   
+   .events-list {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     margin-top: 1.5rem;
+   }
+   
+   .event-card {
+     display: flex;
+     background: white;
+     border: 2px solid #000;
+   }
+   
+   .event-date {
+     padding: 1rem;
+     border-right: 2px solid #000;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     min-width: 80px;
+   }
+   
+   .date-box {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+   
+   .month {
+     font-size: 0.75rem;
+     font-weight: 600;
+     text-transform: uppercase;
+     color: #4B5563;
+   }
+   
+   .day {
+     font-size: 1.5rem;
+     font-weight: 700;
+   }
+   
+   .event-details {
+     flex: 1;
+     padding: 1rem;
+   }
+   
+   .event-details h3 {
+     font-size: 1.125rem;
+     font-weight: 600;
+     margin: 0 0 0.5rem;
+   }
+   
+   .event-location {
+     font-size: 0.875rem;
+     color: #4B5563;
+     margin: 0 0 0.75rem;
+   }
+   
+   .event-description {
+     font-size: 0.9375rem;
+     color: #6B7280;
+     margin: 0;
+   }
+   
+   .event-actions {
+     padding: 1rem;
+     display: flex;
+     align-items: center;
+   }
+   
+   .event-action-btn {
+     padding: 0.375rem 0.75rem;
+     background: none;
+     border: 2px solid #000;
+     font-weight: 500;
+     cursor: pointer;
+   }
+   
+   .event-action-btn:hover {
+     background: #f5f5f5;
+   }
+   
+   
+   /* ==========================================================================
+      Responsive Styles
+      ========================================================================== */
+   
+   @media (max-width: 768px) {
+     .dashboard-container {
+       flex-direction: column;
+     }
+     
+     .dashboard-sidebar {
+       width: 100%;
+       border-right: none;
+       border-bottom: 2px solid #000;
+     }
+     
+     .sidebar-menu {
+       display: flex;
+       overflow-x: auto;
+       padding: 0.5rem;
+     }
+     
+     .sidebar-menu-item {
+       flex-direction: column;
+       padding: 0.5rem 1rem;
+       text-align: center;
+     }
+     
+     .menu-item-icon {
+       margin-right: 0;
+       margin-bottom: 0.25rem;
+     }
+     
+     .sidebar-menu-item.active::before {
+       left: 0;
+       top: auto;
+       bottom: 0;
+       width: 100%;
+       height: 3px;
+     }
+     
+     .sidebar-footer {
+       display: none;
+     }
+     
+     .dashboard-content {
+       padding: 1rem;
+     }
+     
+     .profile-details-grid {
+       grid-template-columns: 1fr;
+     }
+     
+     .profile-stats {
+       flex-direction: column;
+     }
+     
+     .event-card {
+       flex-direction: column;
+     }
+     
+     .event-date {
+       border-right: none;
+       border-bottom: 2px solid #000;
+       padding: 0.5rem;
+     }
+     
+     .clubs-grid {
+       grid-template-columns: 1fr;
+     }
+   }
