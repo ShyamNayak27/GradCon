@@ -147,8 +147,8 @@ The backend application will likely require environment variables for configurat
 
 <details> <summary><strong>📁 File Structure</strong></summary>
 gradconnect/
-├── public/                     # Static assets served by Express
-│   ├── images/                 # Image files (e.g., logos, icons)
+├── public/                     
+│   ├── images/                 
 │   ├── homepage.css
 │   ├── index.html
 │   ├── signup_draft.css
@@ -158,16 +158,16 @@ gradconnect/
 │   ├── signup.html
 │   ├── titlepage.css
 │   └── titlepage.html
-├── routes/                     # Express route handlers
+├── routes/                     
 │   └── auth.js
-├── .env                        # Environment variables (NOT to be committed)
-├── .gitignore                  # Ignore node_modules, .env, etc.
-├── db.js                       # Database configuration and connection
-├── server.js                   # Main Express.js server entry point
-├── package.json                # Project metadata and dependencies
-├── package-lock.json           # Auto-generated lockfile
-├── README.md                   # Documentation
-└── LICENSE                     # (Optional) Open source license
+├── .env                       
+├── .gitignore                  
+├── db.js                      
+├── server.js                   
+├── package.json                
+├── package-lock.json           
+├── README.md                  
+└── LICENSE                    
 </details>
 
 
