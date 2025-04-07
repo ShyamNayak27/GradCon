@@ -192,6 +192,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 Shyam Narayan Nayak - [shtrillion@gmail.com]
 
-Project Link: [https://github.com/[ShyamNayak27]/gradconnect](https://github.com/[ShyamNayak27]/gradconnect)
+Project Link: [https://github.com/ShyamNayak27/gradconnect](https://github.com/ShyamNayak27/GradConnect)
 
 Use code with caution.
