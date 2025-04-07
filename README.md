@@ -146,6 +146,7 @@ The backend application will likely require environment variables for configurat
 ## File Structure
 
 <details> <summary><strong>📁 File Structure</strong></summary>
+```
 gradconnect/
 ├── public/                     
 │   ├── images/                 
@@ -167,7 +168,8 @@ gradconnect/
 ├── package.json                
 ├── package-lock.json           
 ├── README.md                  
-└── LICENSE                    
+└── LICENSE    
+```
 </details>
 
 
